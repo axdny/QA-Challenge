@@ -101,9 +101,3 @@ The workflow installs Chromium, runs headless tests, and uploads the HTML report
 Playwright MCP was used during test design to inspect the application accessibility tree, confirm the login page structure, and identify semantic controls such as `Email`, `Password`, and `Sign In`. This helped choose user-facing locators instead of brittle coordinates or CSS tied to presentation.
 
 The implementation was then organized manually into Cucumber features, typed step definitions, Page Objects, hooks, environment configuration, and CI configuration. AI-assisted exploration was reviewed against the application behavior; credentials were kept out of source control and are supplied only through environment variables or GitHub Actions secrets.
-
-## Notes
-
-The booking scenario creates a real appointment in the authorized test account. Use a dedicated test user and confirm that the environment permits test bookings. The suite intentionally uses Chromium only, as required by the challenge.
-
-During authenticated exploration, the application did not expose `data-testid`, `data-test`, or `data-cy` attributes on the booking controls. The tests therefore use the stable semantic and structural hooks provided by the application: the `Doctors` and `Book Appointment` links, doctor detail hrefs, and the form ids `doctor_id`, `appointment_date`, and `time_slot`.
