@@ -1,0 +1,12 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "npm install": true,
+    "Test-Path": true,
+    "npx playwright": true
+  },
+  "cucumberautocomplete.steps": [
+    "src/steps/**/*.ts"
+  ],
+  "cucumberautocomplete.syncfeatures": "features/**/*.feature",
+  "cucumberautocomplete.strictGherkinValidation": true
+}
