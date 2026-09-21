@@ -72,7 +72,7 @@ Open the generated report in a browser with:
 npm run report:allure:open
 ```
 
-The generated report is written to `allure-report/`. GitHub Actions generates it after every scheduled or manually triggered run and uploads it as an artifact named `test-results`.
+The generated report is written to `allure-report/`. GitHub Actions publishes a browsable GitHub Pages site after every scheduled or manually triggered run, with direct links to the Allure report, the Cucumber HTML report, and failure screenshots. GitHub Actions artifacts are ZIP downloads by design, so Pages is used for reports that should open directly in a browser.
 
 ## Project structure
 
@@ -94,7 +94,7 @@ The workflow runs on demand and automatically from Monday through Friday at **07
 - `TEST_USER_PASSWORD`
 - `EXPECTED_USER_EMAIL`
 
-The workflow installs Chromium, runs headless tests, and uploads the HTML report and failure screenshots as artifacts.
+The workflow installs Chromium, runs headless tests, and publishes the reports through GitHub Pages. Enable GitHub Pages with **GitHub Actions** as the deployment source in the repository settings. The report site is available from the workflow's deployment URL.
 
 ## AI usage and Playwright MCP
 

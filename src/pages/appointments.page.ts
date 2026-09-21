@@ -64,6 +64,12 @@ export class AppointmentsPage {
 
   async expectAppointmentListed(appointmentText: string): Promise<void> {
     await expect(this.page.getByText('Loading appointments...', { exact: true })).toBeHidden().catch(() => undefined);
-    await expect(this.page.getByText(appointmentText, { exact: true })).toBeVisible();
+    const [dateText, timeText] = appointmentText.split(' • ');
+    const [day, month, year] = dateText.split('/');
+    const escapedTime = timeText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const appointmentPattern = new RegExp(
+      `0?${day}/0?${month}/${year}\\s*•\\s*${escapedTime}`
+    );
+    await expect(this.page.getByText(appointmentPattern)).toBeVisible();
   }
 }
