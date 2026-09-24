@@ -2,8 +2,6 @@ name: Weekday medical appointment tests
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 7 * * 1-5'
 
 permissions:
   contents: read
